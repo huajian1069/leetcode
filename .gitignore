@@ -1,0 +1,6 @@
+googletest-release-1.10.0/build
+src/*_test
+src/*/*.o
+src/*.dSYM
+src/*/*.dSYM
+.DS_Store
