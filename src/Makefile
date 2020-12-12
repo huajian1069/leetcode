@@ -6,9 +6,12 @@ CFLAGS = $(WARN) $(OPT) $(INCPATH)
 
 GTEST = -L../googletest-release-1.10.0/build/googletest/generated/ -lgtest -lgtest_main
 
-OBJECTS = ./0008-reverse-integer/inverse.o
+OBJECTS = ./0008-reverse-integer/inverse.o \
+		 ./0001-two-sum/two-sum.o
 
-TESTS = inverse_test
+TESTS = inverse_test \
+		two-sum_test
+
 
 all: gtest $(OBJECTS) $(TESTS)
 
@@ -24,6 +27,8 @@ $(OBJECTS): %.o:%.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 inverse_test: ./0008-reverse-integer/inverse.o 0008-reverse-integer/inverse_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+two-sum_test: ./0001-two-sum/two-sum.o 0001-two-sum/two-sum_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 
 clean:
