@@ -3,7 +3,7 @@
 
 TEST(Solution, SimpleTest){
 	Solution solution;
-	string s("abcb");
+	string s("abcabcbb");
 	int pred = solution.lengthOfLongestSubstring(s);
 	int real = 3;
 	cout << pred;

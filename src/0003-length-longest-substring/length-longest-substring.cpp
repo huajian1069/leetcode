@@ -5,32 +5,20 @@ using namespace std;
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        map<char, bool> long_record;
-        int long_pos = s.length();
-        map<char, bool> head_record;
+        map<char, int> head_record;
+        int max_length = 0;
+        int j = s.length();
         for(int i = s.length()-1; i >= 0; i--){
-            if(long_record.count(s[i]) == 0 && i == long_pos-1){
-                long_pos -= 1;
-                long_record[s[i]] = true;
-                //continue;
-            }
-            if(head_record.count(s[i]) == 0){
-                head_record[s[i]] = true;
-            } else {
-                map<char, bool> record;
-                record[s[i]] = true;
-                int j = 1;
-                while(i+j < s.length() && record.count(s[i+j]) == 0){
-                    record[s[i+j]] = true;
-                    j++;
+            if(head_record.count(s[i]) != 0){
+                int new_end = head_record[s[i]];
+                for (int k = new_end; k < j; k++){
+                    head_record.erase(s[k]);
                 }
-                head_record = record;
+                j = new_end;
             }
-            if(head_record.size() > long_record.size()){
-                long_pos = i;
-                long_record = head_record;
-            }
+            head_record[s[i]] = i;
+            max_length = max(max_length, j-i);
         }
-        return long_record.size();
+        return max_length;
     }
 };
