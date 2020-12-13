@@ -6,6 +6,5 @@ TEST(Solution, SimpleTest){
 	string s("abcabcbb");
 	int pred = solution.lengthOfLongestSubstring(s);
 	int real = 3;
-	cout << pred;
 	ASSERT_EQ(real, pred);
 }

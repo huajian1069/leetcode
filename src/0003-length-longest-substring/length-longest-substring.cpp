@@ -11,10 +11,15 @@ public:
         for(int i = s.length()-1; i >= 0; i--){
             if(head_record.count(s[i]) != 0){
                 int new_end = head_record[s[i]];
-                for (int k = new_end; k < j; k++){
-                    head_record.erase(s[k]);
+                if (j - new_end < new_end - i)
+                    for (int k = new_end; k < j; k++)
+                        head_record.erase(s[k]);
+                else{
+                    head_record.clear();
+                    for (int k = i; k < new_end; k++)
+                        head_record[s[k]] = k;
                 }
-                j = new_end;
+                //j = min(j, new_end);
             }
             head_record[s[i]] = i;
             max_length = max(max_length, j-i);
