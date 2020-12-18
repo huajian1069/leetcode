@@ -8,5 +8,6 @@ TEST(Solution, SimpleTest){
 	vector<int> expected{0,1};
 	bool ck1 = (expected[0] == calculated[0]);
 	bool ck2 = (expected[1] == calculated[1]);
-	ASSERT_TRUE(ck1 && ck2);
+	ASSERT_TRUE(ck1);
+	ASSERT_TRUE(ck2);
 }
