@@ -6,9 +6,6 @@ using namespace std;
 class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-        int i = 0;
-        int length = nums1.size() + nums2.size();
-        int j = (length + 1) / 2 - i;
         if (nums1.size() > nums2.size()){
             short_ = &nums2;
             long_ = &nums1;
@@ -16,12 +13,19 @@ public:
             short_ = &nums1;
             long_ = &nums2;
         }
-        while(abs_short(i-1) > abs_long(j) || abs_long(j-1) > abs_short(i)){
-            i++;
-            j = (length + 1) / 2 - i;
+        int i = (*short_).size() / 2;
+        const int halfL = (nums1.size() + nums2.size()+ 1) / 2;
+        int j;
+        bool stop = false;
+        while(!stop){
+            if (abs_short(i-1) > abs_long(j)) // evaluate objective/performance
+                i--;        // move in design space, update design parameter
+            else if (abs_long(j-1) > abs_short(i))
+                i++;        // move in design space
+            j = halfL - i;  // move in design space,  update design parameter
+            stop = (abs_short(i-1) <= abs_long(j)) && (abs_long(j-1) <= abs_short(i)); // evaluate stopping condition
         }
-        cout << i << " j" << j << endl;
-        if((length) % 2)
+        if((nums1.size() + nums2.size()) % 2)
             return max(abs_short(i-1), abs_long(j-1));
         else
             return (max(abs_short(i-1), abs_long(j-1)) + min(abs_short(i), abs_long(j)))/2.0;
