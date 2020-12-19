@@ -5,16 +5,18 @@ using namespace std;
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        map<char, int> head_record;
-        int max_length = 0;
+        map<char, int> record;
         int j = s.length();
-        for(int i = s.length()-1; i >= 0; i--){
-            if(head_record.count(s[i]) != 0){
-                j = min(j, head_record[s[i]]);
+        int i = s.length() - 1;
+        int max_obj = 0;
+        while(!(i < 0)){
+            if(record.count(s[i]) != 0){   // update objective/performance
+                j = min(j, record[s[i]]); 
             }
-            head_record[s[i]] = i;
-            max_length = max(max_length, j-i);
+            max_obj = max(max_obj, j-i);  // record biggest objective
+            record[s[i]] = i;             // record auxiliary variables
+            i--;                // move in design space
         }
-        return max_length;
+        return max_obj;
     }
 };
