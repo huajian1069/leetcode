@@ -24,14 +24,16 @@ public:
         int ans = 0;
         int imin = std::numeric_limits<int>::min(); // minimum value
 		int imax = std::numeric_limits<int>::max(); // maximum value (2147483647)
-        while(new_s[i] <= '9' && new_s[i] >= '0'){
-            int dit = (int(new_s[i]) - 48);
-            if(ans > imax/10 || (ans==imax/10 && dit>7))
+        bool stop = new_s[i] > '9' || new_s[i] < '0';
+        while(!stop){
+            int dit = (int(new_s[i]) - 48);   // evaluate objective/performance
+            if(ans==imax/10 && dit>7)       // check stop criterion
                 return imax;
-            if(ans < imin/10 || (ans==imin/10 && dit>8))
+            if(ans==imin/10 && dit>8)       // check stop criterion
                 return imin;
-            ans = ans * 10 + pos*dit;
+            ans = ans * 10 + pos*dit;        // evaluate objective       
             i++;
+            stop = new_s[i] > '9' || new_s[i] < '0';  // check stop criterion
         }
         return ans;
     }
