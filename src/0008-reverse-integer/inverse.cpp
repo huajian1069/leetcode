@@ -16,25 +16,21 @@ public:
         if (max_digit == 9)
             flag = true;
         int sum = 0;
-        int digit = 0;
+        int i = 0;
         int remain = x;
-        try{
-            while(max_digit > -1){
-            int d = remain / int(pow(10, max_digit));
-            remain = x % int(pow(10, max_digit));
+        bool stop = i > max_digit;
+        while(!stop){
+            int d = remain / int(pow(10, max_digit-i));
+            remain = x % int(pow(10, max_digit-i));
             if(flag == true){
-                if (x > 0 && d * pow(10, digit) > max_int - sum)
+                if (x > 0 && d * pow(10, i) > max_int - sum)
                     return 0;
-                else if(x < 0 && d * pow(10, digit) < min_int - sum)
+                else if(x < 0 && d * pow(10, i) < min_int - sum)
                     return 0;
             }
-            sum += d * pow(10, digit);
-            max_digit--;
-            digit++;
-            }
-        }
-        catch(...){
-            return 0;
+            sum += d * pow(10, i);
+            i++;
+            stop = i > max_digit;
         }
         return sum;
     }

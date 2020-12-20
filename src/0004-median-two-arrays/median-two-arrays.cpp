@@ -23,7 +23,7 @@ public:
             else if (abs_long(j-1) > abs_short(i))
                 i++;        // move in design space
             j = halfL - i;  // move in design space,  update design parameter
-            stop = (abs_short(i-1) <= abs_long(j)) && (abs_long(j-1) <= abs_short(i)); // evaluate stopping condition
+            stop = (abs_short(i-1) <= abs_long(j)) && (abs_long(j-1) <= abs_short(i)); // evaluate stopping criterion
         }
         if((nums1.size() + nums2.size()) % 2)
             return max(abs_short(i-1), abs_long(j-1));
