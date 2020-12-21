@@ -4,8 +4,8 @@ read -r index name <<< "$index_name"
 if [[ ! -d "$index_name" ]]
 then
 	mkdir "$index_name"
-	touch "$index_name/$name.cpp"
-	printf "#include <gtest/gtest.h>\n#include \"$name.cpp\"\n\nTEST(Solution, SimpleTest){\n\tASSERT_();\n}\n" > "$index_name/${name}_test.cpp"
+	printf "#include <iostream>\nusing namespace std;" > "$index_name/$name.cpp"
+	printf "#include <gtest/gtest.h>\n#include \"$name.cpp\"\n\nTEST(Solution, SimpleTest1){\n\tSolution solution;\tASSERT_();\n}\n" > "$index_name/${name}_test.cpp"
 	obj="./$index_name/${name}.o"
 	printf "${name}_test: $obj $index_name/${name}_test.cpp\n\t\$(CC) \$(CFLAGS) \$(GTEST) \$^ -o \$@\n" >> Makefile
 	printf "\t\t$obj" >> Makefile

@@ -11,9 +11,10 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0002-add-two-sum/add-two-sum.o \
 		./0003-length-longest-substring/length-longest-substring.o \
 		./0004-median-two-arrays.o \
+		./0005-longest-palindromic-substring/longest-palindromic-substring.o \
+		./0006-zigzag-conversion/zigzag-conversion.o \
 		./0007-atoi/atoi.o   \
 		./0008-reverse-integer/inverse.o \
-		./0006-zigzag-conversion/zigzag-conversion.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -23,6 +24,7 @@ TESTS = HelloWorld \
 		atoi_test \
 		inverse_test \
 		zigzag-conversion_test \
+		longest-palindromic-substring_test \
 
 all: gtest $(OBJECTS) $(TESTS)
 
@@ -50,4 +52,6 @@ inverse_test: ./0008-reverse-integer/inverse.o 0008-reverse-integer/inverse_test
 median-two-arrays_test: ./0004-median-two-arrays/median-two-arrays.o 0004-median-two-arrays/median-two-arrays_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 zigzag-conversion_test: ./0006-zigzag-conversion/zigzag-conversion.o 0006-zigzag-conversion/zigzag-conversion_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+longest-palindromic-substring_test: ./0005-longest-palindromic-substring/longest-palindromic-substring.o 0005-longest-palindromic-substring/longest-palindromic-substring_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
