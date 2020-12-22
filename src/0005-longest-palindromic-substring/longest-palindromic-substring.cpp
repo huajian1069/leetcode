@@ -19,8 +19,7 @@ public:
                 same = false;
                 if(j > 0 && s[j-1] == s[i])
                     j -= 1;
-                else if(s[i-1] == s[i]){
-                    j = i-1;   
+                else if(s[i-1] == s[i] && j == i-1){
                     same = true;
                 }
                 else {
