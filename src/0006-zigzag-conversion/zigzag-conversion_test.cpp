@@ -27,3 +27,12 @@ TEST(Solution, SimpleTest3){
 	string real = "A";
 	ASSERT_EQ(pred, real);
 }
+
+TEST(Solution, SimpleTest4){
+	string s = "AB";
+	int numRows = 1;
+	Solution solution;
+	string pred = solution.convert(s ,numRows);
+	string real = "AB";
+	ASSERT_EQ(pred, real);
+}
