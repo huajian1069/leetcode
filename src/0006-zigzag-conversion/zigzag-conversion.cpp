@@ -5,32 +5,26 @@ using namespace std;
 class Solution {
 public:
     string convert(string s, int numRows) {
+        if(numRows == 1)
+            return s;
         bool stop = false;
-        bool down = true;
-        int row = 0, col = 0;
-        map<int, char> m;
-        int numCols = int(s.length()/2) + 1;
+        string *sub_res = new string[numRows];
         int i = 0;
+        const int unit = 2 * numRows - 2;
         while(!stop){
-            m[row*numCols + col] = s[i++];
-            if(row == numRows-1)
-                down = false;
-            else if(row == 0)
-                down = true;
-            if (numRows == 1)
-                col += 1;
-            else if(down)
-                row += 1;
-            else{
-                row -= 1;  
-                col += 1;
-            } 
+            int idx = i % unit;
+            if(idx >= numRows)
+                idx = unit - idx;
+            sub_res[idx] += s[i];
+            i++;
             stop = i == s.length();
         }
-        string ress;
-        for(auto &iter : m)
-            ress += iter.second;
-        return ress;
+        string res;
+        for(int i = 0; i < numRows; i++)
+            res += sub_res[i];
+        return res;
     }
 };
+
+
 
