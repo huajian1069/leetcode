@@ -16,6 +16,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0007-atoi/atoi.o   \
 		./0008-reverse-integer/inverse.o \
 		./0006-b-spiral-printing/b-spiral-printing.o \
+		./0009-palindrome-number/palindrome-number.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -27,7 +28,8 @@ TESTS = HelloWorld \
 		zigzag-conversion_test \
 		longest-palindromic-substring_test \
 		b-spiral-printing_test \
-		
+		palindrome-number_test \
+
 all: gtest $(OBJECTS) $(TESTS)
 
 gtest:
@@ -38,7 +40,7 @@ $(OBJECTS): %.o:%.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 	
 clean:
-	rm -f */*.out *_test -r */*.dYSM *.dYSM
+	rm -f */*.o *_test -r */*.dYSM *.dYSM
 HelloWorld_test: ./basics/HelloWorld.o basics/HelloWorld_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@	
 two-sum_test: ./0001-two-sum/two-sum.o 0001-two-sum/two-sum_test.cpp
@@ -58,6 +60,8 @@ zigzag-conversion_test: ./0006-zigzag-conversion/zigzag-conversion.o 0006-zigzag
 longest-palindromic-substring_test: ./0005-longest-palindromic-substring/longest-palindromic-substring.o 0005-longest-palindromic-substring/longest-palindromic-substring_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 b-spiral-printing_test: ./0006-b-spiral-printing/b-spiral-printing.o 0006-b-spiral-printing/b-spiral-printing_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+palindrome-number_test: ./0009-palindrome-number/palindrome-number.o 0009-palindrome-number/palindrome-number_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 
 
