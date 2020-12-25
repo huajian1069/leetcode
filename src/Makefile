@@ -15,6 +15,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0006-zigzag-conversion/zigzag-conversion.o \
 		./0007-atoi/atoi.o   \
 		./0008-reverse-integer/inverse.o \
+		./0006-b-spiral-printing/b-spiral-printing.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -25,7 +26,8 @@ TESTS = HelloWorld \
 		inverse_test \
 		zigzag-conversion_test \
 		longest-palindromic-substring_test \
-
+		b-spiral-printing_test \
+		
 all: gtest $(OBJECTS) $(TESTS)
 
 gtest:
@@ -55,3 +57,7 @@ zigzag-conversion_test: ./0006-zigzag-conversion/zigzag-conversion.o 0006-zigzag
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 longest-palindromic-substring_test: ./0005-longest-palindromic-substring/longest-palindromic-substring.o 0005-longest-palindromic-substring/longest-palindromic-substring_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+b-spiral-printing_test: ./0006-b-spiral-printing/b-spiral-printing.o 0006-b-spiral-printing/b-spiral-printing_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+
+
