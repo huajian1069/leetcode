@@ -17,6 +17,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0008-reverse-integer/inverse.o \
 		./0006-b-spiral-printing/b-spiral-printing.o \
 		./0009-palindrome-number/palindrome-number.o \
+		./0010-regular-matching/regular-matching.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -29,6 +30,7 @@ TESTS = HelloWorld \
 		longest-palindromic-substring_test \
 		b-spiral-printing_test \
 		palindrome-number_test \
+		regular-matching_test \
 
 all: gtest $(OBJECTS) $(TESTS)
 
@@ -63,5 +65,5 @@ b-spiral-printing_test: ./0006-b-spiral-printing/b-spiral-printing.o 0006-b-spir
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 palindrome-number_test: ./0009-palindrome-number/palindrome-number.o 0009-palindrome-number/palindrome-number_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
-
-
+regular-matching_test: ./0010-regular-matching/regular-matching.o 0010-regular-matching/regular-matching_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
