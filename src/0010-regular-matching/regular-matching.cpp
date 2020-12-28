@@ -4,6 +4,7 @@ using namespace std;
 class Solution {
 public:
     bool isMatch(string s, string p) {
+        // initialise the memory for DP
         if(mem == nullptr){
             mem = new char*[s.length()+1];
             for (int i = 0; i <= s.length(); i++){
@@ -12,32 +13,26 @@ public:
                     mem[i][j] = 'x';
             }
         }
+        // if the solution for the parameter is revisited, return the memorized result 
         if(mem[s.length()][p.length()] != 'x')
             return mem[s.length()][p.length()];
-    	// cout << "s: " << s << endl;
-    	// cout << "p: " << p << endl;
-        bool match = true;
-        int i = 0, j = 0;
-    	if(j + 1 < p.length() && p[j+1] == '*'){
-    		j += 2;
-            match = isMatch(s.substr(i, s.length()-i), p.substr(j, p.length()-j));
-    		while(!match && i < s.length() && (s[i] == p[j-2] || p[j-2] == '.')){
+
+        // transfer the solution to the solution for another parameter
+        bool match;
+        int i = 0;
+    	if(p.length() > 1 && p[1] == '*'){
+            match = isMatch(s, p.substr(2, p.length()-2));
+    		while(!match && i < s.length() && (s[i] == p[0] || p[0] == '.')){
     			i++;
-                match = isMatch(s.substr(i, s.length()-i), p.substr(j, p.length()-j));
+                match = isMatch(s.substr(i, s.length()-i), p);
     		}
-    	} else if(i == s.length() || j == p.length())
-            match = i == s.length() && j == p.length();
-        else if(s[i] == p[j] || p[j] == '.'){
-            i += 1;
-            j += 1;
-            match = isMatch(s.substr(i, s.length()-i), p.substr(j, p.length()-j));
+    	} else if(0 == s.length() || 0 == p.length())
+            match = 0 == s.length() && 0 == p.length();
+        else if(s[0] == p[0] || p[0] == '.'){
+            match = isMatch(s.substr(1, s.length()-1), p.substr(1, p.length()-1));
         } else match = false;
-            // cout << "middle j: " << j << endl;
-       		// cout << "middle i: " << i << endl;
-        	// cout << "middle match: " << match << endl;  
-        // cout << "j: " << j << endl;
-        // cout << "i: " << i << endl;
-        // cout << "match: " << match << endl;    
+
+        // memeorize the solution for current parameter
         mem[s.length()][p.length()] = match;
         return match;
     }
