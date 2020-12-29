@@ -32,7 +32,7 @@ public:
             match = isMatch(s.substr(1, s.length()-1), p.substr(1, p.length()-1));
         } else match = false;
 
-        // memeorize the solution for current parameter
+        // memeorize the solution for current parameter before return
         mem[s.length()][p.length()] = match;
         return match;
     }

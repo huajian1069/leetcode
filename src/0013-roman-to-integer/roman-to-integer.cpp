@@ -43,7 +43,7 @@ public:
                     i -= 2;
                 } else i--;
             } else i--;
-            cout << "i: " << i << ", num: " << num << endl;
+            // cout << "i: " << i << ", num: " << num << endl;
             sum += num;
             stop = i < 0;
         }

@@ -19,6 +19,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0009-palindrome-number/palindrome-number.o \
 		./0010-regular-matching/regular-matching.o \
 		./0013-roman-to-integer/roman-to-integer.o \
+		./0014-longest-common-prefix/longest-common-prefix.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -33,7 +34,8 @@ TESTS = HelloWorld \
 		palindrome-number_test \
 		regular-matching_test \
 		roman-to-integer_test \
-		
+		longest-common-prefix_test \
+
 all: gtest $(OBJECTS) $(TESTS)
 
 gtest:
@@ -70,6 +72,8 @@ palindrome-number_test: ./0009-palindrome-number/palindrome-number.o 0009-palind
 regular-matching_test: ./0010-regular-matching/regular-matching.o 0010-regular-matching/regular-matching_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 roman-to-integer_test: ./0013-roman-to-integer/roman-to-integer.o 0013-roman-to-integer/roman-to-integer_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+longest-common-prefix_test: ./0014-longest-common-prefix/longest-common-prefix.o 0014-longest-common-prefix/longest-common-prefix_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 
 
