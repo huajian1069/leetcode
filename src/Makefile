@@ -20,6 +20,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0010-regular-matching/regular-matching.o \
 		./0013-roman-to-integer/roman-to-integer.o \
 		./0014-longest-common-prefix/longest-common-prefix.o \
+		./0011-container-with-most-water/container-with-most-water.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -35,7 +36,8 @@ TESTS = HelloWorld \
 		regular-matching_test \
 		roman-to-integer_test \
 		longest-common-prefix_test \
-
+		container-with-most-water_test \
+		
 all: gtest $(OBJECTS) $(TESTS)
 
 gtest:
@@ -75,5 +77,5 @@ roman-to-integer_test: ./0013-roman-to-integer/roman-to-integer.o 0013-roman-to-
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 longest-common-prefix_test: ./0014-longest-common-prefix/longest-common-prefix.o 0014-longest-common-prefix/longest-common-prefix_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
-
-
+container-with-most-water_test: ./0011-container-with-most-water/container-with-most-water.o 0011-container-with-most-water/container-with-most-water_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
