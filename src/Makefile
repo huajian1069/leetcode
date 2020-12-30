@@ -21,6 +21,8 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0013-roman-to-integer/roman-to-integer.o \
 		./0014-longest-common-prefix/longest-common-prefix.o \
 		./0011-container-with-most-water/container-with-most-water.o \
+		./codeforce01-bovine-dilemma/bovine-dilemma.o \
+		./codeforce02-last-minute-enhancements/last-minute-enhancements.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -37,7 +39,9 @@ TESTS = HelloWorld \
 		roman-to-integer_test \
 		longest-common-prefix_test \
 		container-with-most-water_test \
-		
+		bovine-dilemma_test \
+		last-minute-enhancements_test \
+
 all: gtest $(OBJECTS) $(TESTS)
 
 gtest:
@@ -79,3 +83,9 @@ longest-common-prefix_test: ./0014-longest-common-prefix/longest-common-prefix.o
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 container-with-most-water_test: ./0011-container-with-most-water/container-with-most-water.o 0011-container-with-most-water/container-with-most-water_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+bovine-dilemma_test: ./codeforce01-bovine-dilemma/bovine-dilemma.o codeforce01-bovine-dilemma/bovine-dilemma_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+last-minute-enhancements_test: ./codeforce02-last-minute-enhancements/last-minute-enhancements.o codeforce02-last-minute-enhancements/last-minute-enhancements_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+
+
