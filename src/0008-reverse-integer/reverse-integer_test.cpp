@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "inverse.cpp"
+#include "reverse-integer.hpp"
 using namespace std;
 
 TEST(Solution, SimpleTest){

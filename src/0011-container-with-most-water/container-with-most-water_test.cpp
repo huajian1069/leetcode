@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "container-with-most-water.cpp"
+#include "container-with-most-water.hpp"
 
 TEST(Solution, SimpleTest1){
 	vector<int> height(20000);

@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "longest-palindromic-substring.cpp"
+#include "longest-palindromic-substring.hpp"
 
 // Function to reverse a string 
 void reverseStr(string& str) 

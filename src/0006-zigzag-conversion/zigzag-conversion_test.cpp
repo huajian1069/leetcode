@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "zigzag-conversion.cpp"
+#include "zigzag-conversion.hpp"
 
 TEST(Solution, SimpleTest1){
 	string s = "PAYPALISHIRING";

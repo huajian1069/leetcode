@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "regular-matching.cpp"
+#include "regular-matching.hpp"
 
 TEST(Solution, SimpleTest1){
 	Solution solution;

@@ -14,7 +14,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0005-longest-palindromic-substring/longest-palindromic-substring.o \
 		./0006-zigzag-conversion/zigzag-conversion.o \
 		./0007-atoi/atoi.o   \
-		./0008-reverse-integer/inverse.o \
+		./0008-reverse-integer/reverse-integer.o \
 		./0006-b-spiral-printing/b-spiral-printing.o \
 		./0009-palindrome-number/palindrome-number.o \
 		./0010-regular-matching/regular-matching.o \
@@ -30,7 +30,7 @@ TESTS = HelloWorld \
 		length-longest-substring_test \
 		median-two-arrays_test \
 		atoi_test \
-		inverse_test \
+		reverse-integer_test \
 		zigzag-conversion_test \
 		longest-palindromic-substring_test \
 		b-spiral-printing_test \
@@ -63,7 +63,7 @@ length-longest-substring_test: ./0003-length-longest-substring/length-longest-su
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 atoi_test: ./0007-atoi/atoi.o 0007-atoi/atoi_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
-inverse_test: ./0008-reverse-integer/inverse.o 0008-reverse-integer/inverse_test.cpp
+reverse-integer_test: ./0008-reverse-integer/reverse-integer.o 0008-reverse-integer/reverse-integer_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 median-two-arrays_test: ./0004-median-two-arrays/median-two-arrays.o 0004-median-two-arrays/median-two-arrays_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@

@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "roman-to-integer.cpp"
+#include "roman-to-integer.hpp"
 
 TEST(Solution, SimpleTest1){
 	Solution solution;

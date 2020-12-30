@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "median-two-arrays.cpp"
+#include "median-two-arrays.hpp"
 
 TEST(Solution, SimpleTest1){
 	vector<int> nums1{0, 2, 3, 10};

@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "two-sum.cpp"
+#include "two-sum.hpp"
 
 TEST(Solution, SimpleTest){
 	Solution solution;

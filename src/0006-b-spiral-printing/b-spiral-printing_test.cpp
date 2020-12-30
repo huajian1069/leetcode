@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "b-spiral-printing.cpp"
+#include "b-spiral-printing.hpp"
 
 TEST(Solution, SimpleTest1){
 	Solution solution;	

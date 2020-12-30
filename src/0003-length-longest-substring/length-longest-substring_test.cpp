@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "length-longest-substring.cpp"
+#include "length-longest-substring.hpp"
 
 TEST(Solution, SimpleTest){
 	Solution solution;

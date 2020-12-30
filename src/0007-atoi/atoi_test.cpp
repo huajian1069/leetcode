@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "atoi.cpp"
+#include "atoi.hpp"
 
 TEST(Solution, SimpleTest){
 	string s = "00002147483649";

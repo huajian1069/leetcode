@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "longest-common-prefix.cpp"
+#include "longest-common-prefix.hpp"
 
 TEST(Solution, SimpleTest1){
 	vector<string> strs{"flower","flow","flight"};

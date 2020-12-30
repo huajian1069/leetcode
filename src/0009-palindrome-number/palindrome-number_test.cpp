@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "palindrome-number.cpp"
+#include "palindrome-number.hpp"
 
 TEST(Solution, SimpleTest1){
 	Solution solution;
