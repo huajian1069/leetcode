@@ -1,6 +1,5 @@
 #include <gtest/gtest.h>
-//#include "last-minute-enhancements.cpp"
-int main();
+#include "last-minute-enhancements.hpp"
 
 TEST(Solution, SimpleTest1){
 	main();

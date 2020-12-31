@@ -1,9 +1,8 @@
 #include <gtest/gtest.h>
-//#include "bovine-dilemma.cpp"
-void df();
+#include "bovine-dilemma.hpp"
 
 TEST(Solution, SimpleTest1){
 	//Solution solution;
-	df();
+	main();
 	ASSERT_EQ(1,1);
 }

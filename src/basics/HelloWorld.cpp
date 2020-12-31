@@ -1,13 +1,8 @@
-#include <iostream>
+#include "HelloWorld.hpp"
 
-using namespace std;
-
-class HelloWorld{
-public:
-	void printMaxMinInt(){
-		int max = (1 << 31) - 1;
-		int min = (1 << 31);
-		cout << "Max Int: " << max << endl;
-		cout << "Min Int: " << min << endl;
-	}
-};
+void HelloWorld::printMaxMinInt(){
+	int max = (unsigned int)(1 << 31) - 1;
+	int min = (1 << 31);
+	cout << "Max Int: " << max << endl;
+	cout << "Min Int: " << min << endl;
+}
