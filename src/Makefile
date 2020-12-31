@@ -85,7 +85,7 @@ container-with-most-water_test: ./0011-container-with-most-water/container-with-
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 bovine-dilemma_test: ./codeforce01-bovine-dilemma/bovine-dilemma.o codeforce01-bovine-dilemma/bovine-dilemma_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
-last-minute-enhancements_test: ./codeforce02-last-minute-enhancements/last-minute-enhancements.o codeforce02-last-minute-enhancements/last-minute-enhancements_test.cpp
+last-minute-enhancements_test: ./codeforce02-last-minute-enhancements/last-minute-enhancements.o codeforce02-last-minute-enhancements/last-minute-enhancements_test.cpp 
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 
 

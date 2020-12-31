@@ -1,13 +1,9 @@
 #include <iostream>
-#include <map>
 #include <vector>
-#include <iterator>
-#include <algorithm>
 using namespace std;
 
-int df(){
+int main(){
 	int n, m; 
-	int res;
 	cin >> n;
 	for(int i = 0; i < n; i++){
 		cin >> m;
@@ -15,34 +11,33 @@ int df(){
 		for(int j = 0; j < m; j++){
 			cin >> inputs[j];
 		}
-
+		int res;
+		bool allow = true;
 		vector<int> melody;
-		map<int, int> overlap;
+		vector<int> overlap;
 		melody.push_back(inputs[0]);
 		for(int j = 1; j < m; j++){
 			// cout << "j: " << j << endl;
-			if(melody.back() != inputs[j])
+			if(melody.back() != inputs[j]){
+				if(melody.back() !=  inputs[j]-1)
+					allow = true;
 				melody.push_back(inputs[j]);
-			else overlap[inputs[j]] = melody.size()-1;
+			}
+			else if(allow == true){
+					overlap.push_back(inputs[j]);
+					allow = false;
+			}
 				//cout << k << "  "<< trees[i][j] - trees[i][k] << endl;
 			//cout << endl;
 		}
-		for(std::map<int, int>::iterator iter = overlap.begin(); iter != overlap.end(); iter++){
-			int pos = iter->second;
-			// cout << iter->first << " value: " << pos << endl;
-			while(1){
-				int value = melody[pos];
-				// cout << "value " << value << endl;
-				if(pos + 1 < melody.size() && melody[pos+1] == value + 1)
-					pos++;
-				else break;
-				iter ++;
-				if(melody[pos] == (iter->first))
-					overlap.erase(melody[pos]);
-				iter--;
-			}
-		}
+		// for(auto v : melody){
+		// 	cout << "vector: " << v << endl;
+		// }
+		// for(auto o : overlap){
+		// 	cout << "map: " << o << endl;
+		// }
 		res = melody.size() + overlap.size();
 		cout << res << endl; 
 	}
+	return 0;
 }
