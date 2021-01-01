@@ -23,6 +23,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0011-container-with-most-water/container-with-most-water.o \
 		./codeforce01-bovine-dilemma/bovine-dilemma.o \
 		./codeforce02-last-minute-enhancements/last-minute-enhancements.o \
+		./0020-valid-parentheses/valid-parentheses.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -41,6 +42,7 @@ TESTS = HelloWorld \
 		container-with-most-water_test \
 		bovine-dilemma_test \
 		last-minute-enhancements_test \
+		valid-parentheses_test \
 
 all: gtest $(OBJECTS) $(TESTS)
 
@@ -87,5 +89,5 @@ bovine-dilemma_test: ./codeforce01-bovine-dilemma/bovine-dilemma.o codeforce01-b
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 last-minute-enhancements_test: ./codeforce02-last-minute-enhancements/last-minute-enhancements.o codeforce02-last-minute-enhancements/last-minute-enhancements_test.cpp 
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
-
-
+valid-parentheses_test: ./0020-valid-parentheses/valid-parentheses.o 0020-valid-parentheses/valid-parentheses_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
