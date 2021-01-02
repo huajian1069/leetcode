@@ -24,6 +24,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./codeforce01-bovine-dilemma/bovine-dilemma.o \
 		./codeforce02-last-minute-enhancements/last-minute-enhancements.o \
 		./0020-valid-parentheses/valid-parentheses.o \
+		./0012-integer-to-roman/integer-to-roman.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -43,6 +44,7 @@ TESTS = HelloWorld \
 		bovine-dilemma_test \
 		last-minute-enhancements_test \
 		valid-parentheses_test \
+		integer-to-roman_test \
 
 all: gtest $(OBJECTS) $(TESTS)
 
@@ -90,4 +92,6 @@ bovine-dilemma_test: ./codeforce01-bovine-dilemma/bovine-dilemma.o codeforce01-b
 last-minute-enhancements_test: ./codeforce02-last-minute-enhancements/last-minute-enhancements.o codeforce02-last-minute-enhancements/last-minute-enhancements_test.cpp 
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 valid-parentheses_test: ./0020-valid-parentheses/valid-parentheses.o 0020-valid-parentheses/valid-parentheses_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+integer-to-roman_test: ./0012-integer-to-roman/integer-to-roman.o 0012-integer-to-roman/integer-to-roman_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
