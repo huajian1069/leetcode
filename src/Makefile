@@ -25,6 +25,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./codeforce02-last-minute-enhancements/last-minute-enhancements.o \
 		./0020-valid-parentheses/valid-parentheses.o \
 		./0012-integer-to-roman/integer-to-roman.o \
+		./0021-merge-two-sorted-lists/merge-two-sorted-lists.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -45,6 +46,7 @@ TESTS = HelloWorld \
 		last-minute-enhancements_test \
 		valid-parentheses_test \
 		integer-to-roman_test \
+		merge-two-sorted-lists_test \
 
 all: gtest $(OBJECTS) $(TESTS)
 
@@ -95,3 +97,6 @@ valid-parentheses_test: ./0020-valid-parentheses/valid-parentheses.o 0020-valid-
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 integer-to-roman_test: ./0012-integer-to-roman/integer-to-roman.o 0012-integer-to-roman/integer-to-roman_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+merge-two-sorted-lists_test: ./0021-merge-two-sorted-lists/merge-two-sorted-lists.o 0021-merge-two-sorted-lists/merge-two-sorted-lists_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+
