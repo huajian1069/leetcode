@@ -5,11 +5,11 @@ read -r index name <<< "$index_name"
 if [[ ! -d "$index_name" ]]
 then
 	mkdir "$index_name"
-	if [[ acm =='acm' ]]
+	if [[ $acm=='acm' ]]
 	then
-		printf "#include <iostream>\nusing namespace std;\n\nint main(){\nint n;\ncin << n;\nfor(int i = 0; i < n; i++){\nfor(int j = 0; j < m; j++){\ncin << ;\ncout <<  << endl;}\n}\n}" >  "$index_name/$name.cc"
-	else
-		printf "#include <iostream>\nusing namespace std;\nclass Solution{\npublic:\n\n};" > "$index_name/$name.hpp"
+		printf "#include <iostream>\nusing namespace std;\n\nint main(){\n\tint n;\n\tcin >> n;\n\tfor(int i = 0; i < n; i++){\n\t\tfor(int j = 0; j < m; j++){\n\t\t\tcin << ;\t\t\n}\n\t\tcout <<  << endl;\n\t}\n}" >  "$index_name/$name.cc"
+	else 
+		printf "#include <iostream>\nusing namespace std;\n\nclass Solution{\npublic:\n\n};" > "$index_name/$name.hpp"
 		printf "#include \"$name.hpp\"\n" > "$index_name/$name.cpp"
 		printf "#include <gtest/gtest.h>\n#include \"$name.hpp\"\n\nTEST(Solution, SimpleTest1){\n\tSolution solution;\n\tASSERT_();\n}\n" > "$index_name/${name}_test.cpp"
 		obj="./$index_name/${name}.o"
