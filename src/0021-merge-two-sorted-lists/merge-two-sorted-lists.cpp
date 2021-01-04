@@ -5,38 +5,29 @@ ListNode* Solution::mergeTwoLists(ListNode* l1, ListNode* l2) {
         return l2;
     if(l2 == nullptr)
         return l1;
-    ListNode *head, **socket;
+    ListNode *head, *main_c, *alt;
     if(l1->val < l2->val){
         head = l1;
-        socket = &(l1->next);
-        if(l1->next == nullptr){
-            l1->next = l2;
-            return head;
-        } else l1 = l1->next;
+        main_c = head;
+        alt = l2;
     }
     else{
         head = l2;
-        socket = &(l2->next);
-        if(l2->next == nullptr){
-            l2->next = l1;
-            return head;
-        } else l2 = l2->next;
+        main_c = head;
+        alt = l1;
     }
     while(1){
-        if(l1->val < l2->val){
-            *socket = l1;
-            socket = &(l1->next);
-            if(l1->next == nullptr){
-                l1->next = l2;
-                break;
-            } else l1 = l1->next;
+        if(main_c->next == nullptr){
+            main_c->next = alt;
+            break;
+        }
+        if(main_c->next->val <= alt->val){
+            main_c = main_c->next;
         } else {
-            *socket = l2;
-            socket = &(l2->next);
-            if(l2->next == nullptr){
-                l2->next = l1;
-                break;
-            } else l2 = l2->next;
+            ListNode *ex = alt;
+            alt = main_c->next;
+            main_c->next = ex;
+            main_c = ex;
         }
     }
     return head;
