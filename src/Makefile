@@ -26,6 +26,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0020-valid-parentheses/valid-parentheses.o \
 		./0012-integer-to-roman/integer-to-roman.o \
 		./0021-merge-two-sorted-lists/merge-two-sorted-lists.o \
+		./acmICPC01-four-segments/four-segments.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -47,7 +48,8 @@ TESTS = HelloWorld \
 		valid-parentheses_test \
 		integer-to-roman_test \
 		merge-two-sorted-lists_test \
-
+		four-segments_test \
+		
 all: gtest $(OBJECTS) $(TESTS)
 
 gtest:
@@ -99,4 +101,7 @@ integer-to-roman_test: ./0012-integer-to-roman/integer-to-roman.o 0012-integer-t
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 merge-two-sorted-lists_test: ./0021-merge-two-sorted-lists/merge-two-sorted-lists.o 0021-merge-two-sorted-lists/merge-two-sorted-lists_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+four-segments_test: ./acmICPC01-four-segments/four-segments.o acmICPC01-four-segments/four-segments_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+
 

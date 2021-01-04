@@ -9,7 +9,7 @@ int main(){
 	for(int i = 0; i < n; i++){
 		// read inputs
 		cin >> m;
-		vector<int> trees(n);
+		vector<int> trees(m);
 		for(int j = 0; j < m; j++){
 			cin >> trees[j];
 		}
