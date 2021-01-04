@@ -19,6 +19,7 @@ TEST(Solution, SimpleTest1){
 	bool res = true;
 	ListNode *real = r_5;
 	while(pred != nullptr || real != nullptr ){
+		cout << "pred: " << pred->val << endl;
 		if (pred == nullptr || real == nullptr){
 			res = false;
 			break;
