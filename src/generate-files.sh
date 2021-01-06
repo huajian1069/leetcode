@@ -2,12 +2,13 @@ index_name=$1
 acm=$2
 IFS='-'
 read -r index name <<< "$index_name"
-if [[ ! -d "$index_name" ]]
+if [[  -d "$index_name" ]]
 then
-	mkdir "$index_name"
-	if [[ $acm=='acm' ]]
+	#mkdir "$index_name"
+	if [[ $acm == 'acm' ]]
 	then
-		printf "#include <iostream>\nusing namespace std;\n\nint main(){\n\tint n;\n\tcin >> n;\n\tfor(int i = 0; i < n; i++){\n\t\tfor(int j = 0; j < m; j++){\n\t\t\tcin << ;\t\t\n}\n\t\tcout <<  << endl;\n\t}\n}" >  "$index_name/$name.cc"
+		echo $acm
+		printf "#include <iostream>\nusing namespace std;\n\nint main(){\n\tint n;\n\tcin >> n;\n\tfor(int i = 0; i < n; i++){\n\t\tfor(int j = 0; j < m; j++){\n\t\t\tcin >> ;\t\t\n\t\t}\n\t\tcout <<  << endl;\n\t}\n}" >  "$index_name/$name.cc"
 	else 
 		printf "#include <iostream>\nusing namespace std;\n\nclass Solution{\npublic:\n\n};" > "$index_name/$name.hpp"
 		printf "#include \"$name.hpp\"\n" > "$index_name/$name.cpp"

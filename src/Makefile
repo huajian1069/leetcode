@@ -28,6 +28,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0021-merge-two-sorted-lists/merge-two-sorted-lists.o \
 		./acmICPC01-four-segments/four-segments.o \
 		./acmICPC02-waste-sorting/waste-sorting.o \
+		./0015-3sum/3sum.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -51,7 +52,8 @@ TESTS = HelloWorld \
 		merge-two-sorted-lists_test \
 		four-segments_test \
 		waste-sorting_test \
-		
+		3sum_test \
+
 all: gtest $(OBJECTS) $(TESTS)
 
 gtest:
@@ -107,4 +109,5 @@ four-segments_test: ./acmICPC01-four-segments/four-segments.o acmICPC01-four-seg
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 waste-sorting_test: ./acmICPC02-waste-sorting/waste-sorting.o acmICPC02-waste-sorting/waste-sorting_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
-
+3sum_test: ./0015-3sum/3sum.o 0015-3sum/3sum_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
