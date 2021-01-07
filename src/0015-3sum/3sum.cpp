@@ -24,25 +24,21 @@ vector<vector<int>> Solution::threeSum(vector<int>& nums){
 }
 
 set<vector<int>> Solution::twoSum(vector<int>& nums, int target, int idx){
-    set<int> diffs;
+    unordered_set<int> diffs;
     set<vector<int>> res;
-    for(int i = 0; i < nums.size()-1; i++){
-        if(i == idx)
-            continue;
-        diffs.insert(target - nums[i]); // save evaluated objective/performance
+    for(int i = idx+1; i < nums.size()-1; i++){
+        diffs.insert(nums[i]); // save evaluated objective/performance
         cout << "nums i+1: " << nums[i+1] << endl;
-        if(i+1 == idx)
-            continue;
-        if(diffs.count(nums[i+1]) != 0){ // evaluate objective/performance
+        if(diffs.count(target - nums[i+1]) != 0){ // evaluate objective/performance
             vector<int> v{-target, nums[i+1], target - nums[i+1]};
             sort(v.begin(), v.end());
             res.insert(v);
         }
          // move in design space
     }
-    for(auto dd = diffs.begin(); dd != diffs.end(); dd++){
-        cout << *dd << "\t";
-    }
+    // for(auto dd = diffs.begin(); dd != diffs.end(); dd++){
+    //     cout << *dd << "\t";
+    // }
     cout << endl;
     return res;
 }

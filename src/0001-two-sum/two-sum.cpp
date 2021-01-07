@@ -1,8 +1,8 @@
 #include "two-sum.hpp"
-#include <map>
+#include <unordered_map>
 
 vector<int> Solution::twoSum(vector<int>& nums, int target) {
-    map<int, int> diffs;
+    unordered_map<int, int> diffs;
     int i = 0;
     bool stop = false;
     while(!stop){

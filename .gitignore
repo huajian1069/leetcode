@@ -4,3 +4,4 @@ src/*/*.o
 src/*.dSYM
 src/*/*.dSYM
 .DS_Store
+leetcode_solution/*
