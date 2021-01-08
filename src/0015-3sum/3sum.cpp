@@ -2,12 +2,18 @@
 
 
 vector<vector<int>> Solution::threeSum(vector<int>& nums){
-    set<vector<int>> kset;
+    unordered_set<int> knownHead;
     vector<vector<int>> res;
+    unordered_map<int, int> valueIdx;
+    for(int i = 0; i < nums.size(); i++)
+        valueIdx[nums[i]] = i;
     for(int i = 0; i < nums.size(); i++){
         cout << " i: " << i << " ; " << nums[i] << endl;
-        auto i_set = twoSum(nums, -nums[i], i);
-        kset.insert(i_set.begin(), i_set.end());
+        if(knownHead.count(nums[i]) != 0)
+            continue;
+        auto i_set = twoSum(nums, valueIdx, knownHead, -nums[i], i);
+        res.insert(res.end(), i_set.begin(), i_set.end());
+        knownHead.insert(nums[i]);
         for(auto d = i_set.begin(); d != i_set.end(); d ++){
             for(auto dd = d->begin(); dd != d->end(); dd++){
                 cout << *dd << "\t";
@@ -16,23 +22,26 @@ vector<vector<int>> Solution::threeSum(vector<int>& nums){
         }
         cout << endl;
     }
-    for(auto s : kset){
-        vector<int> v(s.begin(), s.end());
-        res.push_back(v);
-    }
     return res;
 }
 
-set<vector<int>> Solution::twoSum(vector<int>& nums, int target, int idx){
-    unordered_set<int> diffs;
-    set<vector<int>> res;
+vector<vector<int>> Solution::twoSum(vector<int>& nums, unordered_map<int, int>& valueIdx, 
+                        unordered_set<int>& knownHead, int target, int idx){
+    //unordered_set<int> diffs;
+    //unordered_set<int> knownHead;
+    vector<vector<int>> res;
     for(int i = idx+1; i < nums.size()-1; i++){
-        diffs.insert(nums[i]); // save evaluated objective/performance
-        cout << "nums i+1: " << nums[i+1] << endl;
-        if(diffs.count(target - nums[i+1]) != 0){ // evaluate objective/performance
-            vector<int> v{-target, nums[i+1], target - nums[i+1]};
-            sort(v.begin(), v.end());
-            res.insert(v);
+       // diffs.insert(nums[i]); // save evaluated objective/performance
+        cout << "nums i+1: " << nums[i] << endl;
+        if(valueIdx.count(target - nums[i]) != 0){ // evaluate objective/performance
+            if(valueIdx[target - nums[i]] > i){
+                if(knownHead.count(target - nums[i]) == 0 && knownHead.count(nums[i]) == 0){
+                    //cout << "valueIdx: " << valueIdx[target - nums[i]] << ", num: " << target - nums[i] << endl;
+                    vector<int> v{-target, nums[i], target - nums[i]};
+                    sort(v.begin(), v.end());
+                    res.push_back(v);
+                }
+            }
         }
          // move in design space
     }
