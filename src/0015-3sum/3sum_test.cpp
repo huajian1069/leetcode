@@ -9,9 +9,16 @@ TEST(Solution, SimpleTest1){
 	ASSERT_EQ(pred, real);
 }
 
-
-
 TEST(Solution, SimpleTest2){
+	Solution solution;
+	vector<int> in{0, 0, 0, 0};
+	vector<vector<int>> pred = solution.threeSum(in);
+	vector<vector<int>> real{vector<int>{0, 0, 0}}; 
+	ASSERT_EQ(pred, real);
+}
+
+
+TEST(Solution, SimpleTest3){
 	Solution solution;
 	vector<int> in{3, 0, -2, -1, 1, 2};
 	vector<vector<int>> pred = solution.threeSum(in);

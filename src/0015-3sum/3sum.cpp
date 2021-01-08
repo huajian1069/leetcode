@@ -28,7 +28,7 @@ vector<vector<int>> Solution::threeSum(vector<int>& nums){
 vector<vector<int>> Solution::twoSum(vector<int>& nums, unordered_map<int, int>& valueIdx, 
                         unordered_set<int>& knownHead, int target, int idx){
     //unordered_set<int> diffs;
-    //unordered_set<int> knownHead;
+    unordered_set<int> knownSecond;
     vector<vector<int>> res;
     for(int i = idx+1; i < nums.size()-1; i++){
        // diffs.insert(nums[i]); // save evaluated objective/performance
@@ -36,10 +36,14 @@ vector<vector<int>> Solution::twoSum(vector<int>& nums, unordered_map<int, int>&
         if(valueIdx.count(target - nums[i]) != 0){ // evaluate objective/performance
             if(valueIdx[target - nums[i]] > i){
                 if(knownHead.count(target - nums[i]) == 0 && knownHead.count(nums[i]) == 0){
-                    //cout << "valueIdx: " << valueIdx[target - nums[i]] << ", num: " << target - nums[i] << endl;
-                    vector<int> v{-target, nums[i], target - nums[i]};
-                    sort(v.begin(), v.end());
-                    res.push_back(v);
+                    if(knownSecond.count(nums[i]) == 0){
+                        //cout << "valueIdx: " << valueIdx[target - nums[i]] << ", num: " << target - nums[i] << endl;
+                        vector<int> v{-target, nums[i], target - nums[i]};
+                        sort(v.begin(), v.end());
+                        res.push_back(v);
+                        knownSecond.insert(nums[i]);
+                        knownSecond.insert(target-nums[i]);
+                    }
                 }
             }
         }
