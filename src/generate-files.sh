@@ -2,9 +2,9 @@ index_name=$1
 acm=$2
 IFS='-'
 read -r index name <<< "$index_name"
-if [[  -d "$index_name" ]]
+if [[ ! -d "$index_name" ]]
 then
-	#mkdir "$index_name"
+	mkdir "$index_name"
 	if [[ $acm == 'acm' ]]
 	then
 		echo $acm

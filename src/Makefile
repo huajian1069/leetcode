@@ -29,6 +29,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./acmICPC01-four-segments/four-segments.o \
 		./acmICPC02-waste-sorting/waste-sorting.o \
 		./0015-3sum/3sum.o \
+		./0016-3sum-closet/3sum-closet.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -53,6 +54,7 @@ TESTS = HelloWorld \
 		four-segments_test \
 		waste-sorting_test \
 		3sum_test \
+		3sum-closet_test \
 
 all: gtest $(OBJECTS) $(TESTS)
 
@@ -111,3 +113,6 @@ waste-sorting_test: ./acmICPC02-waste-sorting/waste-sorting.o acmICPC02-waste-so
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 3sum_test: ./0015-3sum/3sum.o 0015-3sum/3sum_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+3sum-closet_test: ./0016-3sum-closet/3sum-closet.o 0016-3sum-closet/3sum-closet_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+
