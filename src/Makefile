@@ -30,6 +30,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./acmICPC02-waste-sorting/waste-sorting.o \
 		./0015-3sum/3sum.o \
 		./0016-3sum-closet/3sum-closet.o \
+		./0017-letter-combinations-of-a-phone-number/letter-combinations-of-a-phone-number.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -55,6 +56,7 @@ TESTS = HelloWorld \
 		waste-sorting_test \
 		3sum_test \
 		3sum-closet_test \
+		letter-combinations-of-a-phone-number_test \
 
 all: gtest $(OBJECTS) $(TESTS)
 
@@ -115,4 +117,5 @@ waste-sorting_test: ./acmICPC02-waste-sorting/waste-sorting.o acmICPC02-waste-so
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 3sum-closet_test: ./0016-3sum-closet/3sum-closet.o 0016-3sum-closet/3sum-closet_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
-
+letter-combinations-of-a-phone-number_test: ./0017-letter-combinations-of-a-phone-number/letter-combinations-of-a-phone-number.o 0017-letter-combinations-of-a-phone-number/letter-combinations-of-a-phone-number_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
