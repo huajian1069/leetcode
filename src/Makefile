@@ -32,6 +32,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0016-3sum-closet/3sum-closet.o \
 		./0017-letter-combinations-of-a-phone-number/letter-combinations-of-a-phone-number.o \
 		./0018-4sum/4sum.o \
+		./0019-remove-nth-node-from-end-of-list/remove-nth-node-from-end-of-list.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -59,6 +60,7 @@ TESTS = HelloWorld \
 		3sum-closet_test \
 		letter-combinations-of-a-phone-number_test \
 		4sum_test \
+		remove-nth-node-from-end-of-list_test \
 
 all: gtest $(OBJECTS) $(TESTS)
 
@@ -122,4 +124,6 @@ waste-sorting_test: ./acmICPC02-waste-sorting/waste-sorting.o acmICPC02-waste-so
 letter-combinations-of-a-phone-number_test: ./0017-letter-combinations-of-a-phone-number/letter-combinations-of-a-phone-number.o 0017-letter-combinations-of-a-phone-number/letter-combinations-of-a-phone-number_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 4sum_test: ./0018-4sum/4sum.o 0018-4sum/4sum_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+remove-nth-node-from-end-of-list_test: ./0019-remove-nth-node-from-end-of-list/remove-nth-node-from-end-of-list.o 0019-remove-nth-node-from-end-of-list/remove-nth-node-from-end-of-list_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
