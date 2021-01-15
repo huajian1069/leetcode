@@ -33,6 +33,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0017-letter-combinations-of-a-phone-number/letter-combinations-of-a-phone-number.o \
 		./0018-4sum/4sum.o \
 		./0019-remove-nth-node-from-end-of-list/remove-nth-node-from-end-of-list.o \
+		./0022-generate-parentheses/generate-parentheses.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -61,6 +62,7 @@ TESTS = HelloWorld \
 		letter-combinations-of-a-phone-number_test \
 		4sum_test \
 		remove-nth-node-from-end-of-list_test \
+		generate-parentheses_test \
 
 all: gtest $(OBJECTS) $(TESTS)
 
@@ -126,4 +128,6 @@ letter-combinations-of-a-phone-number_test: ./0017-letter-combinations-of-a-phon
 4sum_test: ./0018-4sum/4sum.o 0018-4sum/4sum_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 remove-nth-node-from-end-of-list_test: ./0019-remove-nth-node-from-end-of-list/remove-nth-node-from-end-of-list.o 0019-remove-nth-node-from-end-of-list/remove-nth-node-from-end-of-list_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+generate-parentheses_test: ./0022-generate-parentheses/generate-parentheses.o 0022-generate-parentheses/generate-parentheses_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
