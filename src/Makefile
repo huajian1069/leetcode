@@ -34,6 +34,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0018-4sum/4sum.o \
 		./0019-remove-nth-node-from-end-of-list/remove-nth-node-from-end-of-list.o \
 		./0022-generate-parentheses/generate-parentheses.o \
+		./0024-swap-nodes-in-pairs/swap-nodes-in-pairs.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -63,6 +64,7 @@ TESTS = HelloWorld \
 		4sum_test \
 		remove-nth-node-from-end-of-list_test \
 		generate-parentheses_test \
+		swap-nodes-in-pairs_test \
 
 all: gtest $(OBJECTS) $(TESTS)
 
@@ -130,4 +132,6 @@ letter-combinations-of-a-phone-number_test: ./0017-letter-combinations-of-a-phon
 remove-nth-node-from-end-of-list_test: ./0019-remove-nth-node-from-end-of-list/remove-nth-node-from-end-of-list.o 0019-remove-nth-node-from-end-of-list/remove-nth-node-from-end-of-list_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 generate-parentheses_test: ./0022-generate-parentheses/generate-parentheses.o 0022-generate-parentheses/generate-parentheses_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+swap-nodes-in-pairs_test: ./0024-swap-nodes-in-pairs/swap-nodes-in-pairs.o 0024-swap-nodes-in-pairs/swap-nodes-in-pairs_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
