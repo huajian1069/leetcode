@@ -35,6 +35,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0019-remove-nth-node-from-end-of-list/remove-nth-node-from-end-of-list.o \
 		./0022-generate-parentheses/generate-parentheses.o \
 		./0024-swap-nodes-in-pairs/swap-nodes-in-pairs.o \
+		./0023-merge-k-sorted-lists/merge-k-sorted-lists.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -65,6 +66,7 @@ TESTS = HelloWorld \
 		remove-nth-node-from-end-of-list_test \
 		generate-parentheses_test \
 		swap-nodes-in-pairs_test \
+		merge-k-sorted-lists_test \
 
 all: gtest $(OBJECTS) $(TESTS)
 
@@ -134,4 +136,6 @@ remove-nth-node-from-end-of-list_test: ./0019-remove-nth-node-from-end-of-list/r
 generate-parentheses_test: ./0022-generate-parentheses/generate-parentheses.o 0022-generate-parentheses/generate-parentheses_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 swap-nodes-in-pairs_test: ./0024-swap-nodes-in-pairs/swap-nodes-in-pairs.o 0024-swap-nodes-in-pairs/swap-nodes-in-pairs_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+merge-k-sorted-lists_test: ./0023-merge-k-sorted-lists/merge-k-sorted-lists.o 0023-merge-k-sorted-lists/merge-k-sorted-lists_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
