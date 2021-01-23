@@ -10,13 +10,13 @@ string Solution::getStringLCM(string s, string t){
 		if(coms[j] == s[k])
 			j = (j + 1) % coms.length();
 		else{
-			if(k == coms.length())
-				coms += s[k];
-			else coms = s.substr(0, k+1);
+			k = coms.length();
+			coms += s[coms.length()];
 			j = 0;
 		}
+		// cout << "k: " << k << " coms: " << coms << endl;
 	}
-	cout << "j: " << j << endl;
+	// cout << "j: " << j << endl;
 	if(j != 0) coms = s;
 	j = 0;
 	comt += t[0];
@@ -24,22 +24,21 @@ string Solution::getStringLCM(string s, string t){
 		if(comt[j] == t[k])
 			j = (j + 1) % comt.length();
 		else{
-			if(k == comt.length())
-				comt += t[k];
-			else comt = t.substr(0, k+1);
+			k = comt.length();
+			comt += t[comt.length()];
 			j = 0;
 		}
 	}
-	cout << "j: " << j << endl;
+	// cout << "j: " << j << endl;
 	if(j != 0) comt = t;
-	cout << "coms: " << coms << endl;
-	cout << "comt: " << comt << endl;
+	// cout << "coms: " << coms << endl;
+	// cout << "comt: " << comt << endl;
 	string ans;
 	if(comt == coms){
 		int nums = s.length() / comt.length();
 		int numt = t.length() / coms.length();
-		cout << "nums: " << nums << endl;
-		cout << "numt: " << numt << endl;
+		// cout << "nums: " << nums << endl;
+		// cout << "numt: " << numt << endl;
 		int num = lcm(nums, numt);
 		while(num--) ans += coms;
 	} else ans = "-1";

@@ -1,5 +1,4 @@
 #include "string-lcm.hpp"
-
 int main(){
 	int n;
 	cin >> n;
