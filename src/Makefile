@@ -37,6 +37,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0024-swap-nodes-in-pairs/swap-nodes-in-pairs.o \
 		./0023-merge-k-sorted-lists/merge-k-sorted-lists.o \
 		./codeforces03-replacing-elements/replacing-elements.o \
+		./codeforces04-string-lcm/string-lcm.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -69,6 +70,7 @@ TESTS = HelloWorld \
 		swap-nodes-in-pairs_test \
 		merge-k-sorted-lists_test \
 		replacing-elements_test \
+		string-lcm_test \
 
 all: gtest $(OBJECTS) $(TESTS)
 
@@ -142,4 +144,6 @@ swap-nodes-in-pairs_test: ./0024-swap-nodes-in-pairs/swap-nodes-in-pairs.o 0024-
 merge-k-sorted-lists_test: ./0023-merge-k-sorted-lists/merge-k-sorted-lists.o 0023-merge-k-sorted-lists/merge-k-sorted-lists_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 replacing-elements_test: ./codeforces03-replacing-elements/replacing-elements.o codeforces03-replacing-elements/replacing-elements_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+string-lcm_test:./codeforces04-string-lcm/string-lcm.o codeforces04-string-lcm/string-lcm_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
