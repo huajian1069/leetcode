@@ -21,8 +21,6 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0013-roman-to-integer/roman-to-integer.o \
 		./0014-longest-common-prefix/longest-common-prefix.o \
 		./0011-container-with-most-water/container-with-most-water.o \
-		./codeforce01-bovine-dilemma/bovine-dilemma.o \
-		./codeforce02-last-minute-enhancements/last-minute-enhancements.o \
 		./0020-valid-parentheses/valid-parentheses.o \
 		./0012-integer-to-roman/integer-to-roman.o \
 		./0021-merge-two-sorted-lists/merge-two-sorted-lists.o \
@@ -36,6 +34,8 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0022-generate-parentheses/generate-parentheses.o \
 		./0024-swap-nodes-in-pairs/swap-nodes-in-pairs.o \
 		./0023-merge-k-sorted-lists/merge-k-sorted-lists.o \
+		./codeforces01-bovine-dilemma/bovine-dilemma.o \
+		./codeforces02-last-minute-enhancements/last-minute-enhancements.o \
 		./codeforces03-replacing-elements/replacing-elements.o \
 		./codeforces04-string-lcm/string-lcm.o \
 
@@ -113,10 +113,6 @@ longest-common-prefix_test: ./0014-longest-common-prefix/longest-common-prefix.o
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 container-with-most-water_test: ./0011-container-with-most-water/container-with-most-water.o 0011-container-with-most-water/container-with-most-water_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
-bovine-dilemma_test: ./codeforce01-bovine-dilemma/bovine-dilemma.o codeforce01-bovine-dilemma/bovine-dilemma_test.cpp
-	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
-last-minute-enhancements_test: ./codeforce02-last-minute-enhancements/last-minute-enhancements.o codeforce02-last-minute-enhancements/last-minute-enhancements_test.cpp 
-	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 valid-parentheses_test: ./0020-valid-parentheses/valid-parentheses.o 0020-valid-parentheses/valid-parentheses_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 integer-to-roman_test: ./0012-integer-to-roman/integer-to-roman.o 0012-integer-to-roman/integer-to-roman_test.cpp
@@ -147,3 +143,8 @@ replacing-elements_test: ./codeforces03-replacing-elements/replacing-elements.o 
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 string-lcm_test:./codeforces04-string-lcm/string-lcm.o codeforces04-string-lcm/string-lcm_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+last-minute-enhancements_test:./codeforces02-last-minute-enhancements/last-minute-enhancements.o codeforces02-last-minute-enhancements/last-minute-enhancements_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+bovine-dilemma_test: ./codeforces01-bovine-dilemma/bovine-dilemma.o codeforces01-bovine-dilemma/bovine-dilemma_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+
