@@ -44,3 +44,15 @@ string Solution::getStringLCM(string s, string t){
 	} else ans = "-1";
 	return ans;
 }
+
+string Solution::getStringLCM2(string s, string t){
+	int num = lcm(s.length(), t.length());
+	int numS = num / s.length();
+	int numT = num / t.length();
+	string ansS, ansT;
+	while(numS--) ansS += s;
+	while(numT--) ansT += t;
+	if(ansS == ansT) return ansS;
+	else return "-1";
+}
+
