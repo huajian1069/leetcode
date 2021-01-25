@@ -38,6 +38,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./codeforces02-last-minute-enhancements/last-minute-enhancements.o \
 		./codeforces03-replacing-elements/replacing-elements.o \
 		./codeforces04-string-lcm/string-lcm.o \
+		./0026-remove-duplicates-from-sorted-array/remove-duplicates-from-sorted-array.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -71,7 +72,8 @@ TESTS = HelloWorld \
 		merge-k-sorted-lists_test \
 		replacing-elements_test \
 		string-lcm_test \
-
+		remove-duplicates-from-sorted-array_test \
+		
 all: gtest $(OBJECTS) $(TESTS)
 
 gtest:
@@ -147,4 +149,5 @@ last-minute-enhancements_test:./codeforces02-last-minute-enhancements/last-minut
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 bovine-dilemma_test: ./codeforces01-bovine-dilemma/bovine-dilemma.o codeforces01-bovine-dilemma/bovine-dilemma_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
-
+remove-duplicates-from-sorted-array_test: ./0026-remove-duplicates-from-sorted-array/remove-duplicates-from-sorted-array.o 0026-remove-duplicates-from-sorted-array/remove-duplicates-from-sorted-array_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
