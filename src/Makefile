@@ -40,6 +40,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./codeforces04-string-lcm/string-lcm.o \
 		./0026-remove-duplicates-from-sorted-array/remove-duplicates-from-sorted-array.o \
 		./0027-remove-element/remove-element.o \
+		./0028-implement-strstr/implement-strstr.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -75,6 +76,7 @@ TESTS = HelloWorld \
 		string-lcm_test \
 		remove-duplicates-from-sorted-array_test \
 		remove-element_test \
+		implement-strstr_test \
 		
 all: gtest $(OBJECTS) $(TESTS)
 
@@ -154,4 +156,6 @@ bovine-dilemma_test: ./codeforces01-bovine-dilemma/bovine-dilemma.o codeforces01
 remove-duplicates-from-sorted-array_test: ./0026-remove-duplicates-from-sorted-array/remove-duplicates-from-sorted-array.o 0026-remove-duplicates-from-sorted-array/remove-duplicates-from-sorted-array_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 remove-element_test: ./0027-remove-element/remove-element.o 0027-remove-element/remove-element_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+implement-strstr_test: ./0028-implement-strstr/implement-strstr.o 0028-implement-strstr/implement-strstr_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
