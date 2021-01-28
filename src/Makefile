@@ -41,6 +41,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0026-remove-duplicates-from-sorted-array/remove-duplicates-from-sorted-array.o \
 		./0027-remove-element/remove-element.o \
 		./0028-implement-strstr/implement-strstr.o \
+		./0035-search-insert-position/search-insert-position.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -77,7 +78,8 @@ TESTS = HelloWorld \
 		remove-duplicates-from-sorted-array_test \
 		remove-element_test \
 		implement-strstr_test \
-		
+		search-insert-position_test \
+
 all: gtest $(OBJECTS) $(TESTS)
 
 gtest:
@@ -158,4 +160,6 @@ remove-duplicates-from-sorted-array_test: ./0026-remove-duplicates-from-sorted-a
 remove-element_test: ./0027-remove-element/remove-element.o 0027-remove-element/remove-element_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 implement-strstr_test: ./0028-implement-strstr/implement-strstr.o 0028-implement-strstr/implement-strstr_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+search-insert-position_test: ./0035-search-insert-position/search-insert-position.o 0035-search-insert-position/search-insert-position_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
