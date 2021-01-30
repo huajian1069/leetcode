@@ -43,6 +43,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0028-implement-strstr/implement-strstr.o \
 		./0035-search-insert-position/search-insert-position.o \
 		./codeforces05-no-more-inversions/no-more-inversions.o \
+		./codeforces06-program/program.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -81,7 +82,8 @@ TESTS = HelloWorld \
 		implement-strstr_test \
 		search-insert-position_test \
 		no-more-inversions_test \
-		
+		program_test \
+
 all: gtest $(OBJECTS) $(TESTS)
 
 gtest:
@@ -167,4 +169,5 @@ search-insert-position_test: ./0035-search-insert-position/search-insert-positio
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 no-more-inversions_test: ./codeforces05-no-more-inversions/no-more-inversions.o codeforces05-no-more-inversions/no-more-inversions_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
-
+program_test: ./codeforces06-program/program.o codeforces06-program/program_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
