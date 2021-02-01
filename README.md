@@ -1,6 +1,6 @@
 # The repository for my algorithm problem practice
 
-Most of the problems are from leetcode, a few are from codeforces, acm-icpc.
+Most of the problems are from [leetcode](https://leetcode.com/problemset/all/), a few are from [codeforces(including acm-icpc)](https://codeforces.com/contests).
 
 There are some Features of this project:
 
