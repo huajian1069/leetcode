@@ -1,7 +1,7 @@
 #include "program.hpp"
 #include <set>
 
-Solution::Solution(string &str): mStr(str){
+Solution::Solution(string &str){
 	int pos = 0;
 	char aft;
 	for(int i = 0; i < str.length()-1; i++){
@@ -36,6 +36,58 @@ Solution::Solution(string &str): mStr(str){
 		}
 		poses.push_back(pos);
 	}
+}
+
+Solution::Solution(string &str, int m): mM(m){
+	int pos = 0;
+	for(int i = 0; i < m; i++){
+		if(str[i] == '+'){
+			pos++;
+		} else pos--;
+		if(pos > can_max.back())
+			can_max.push_back(pos);
+		else 
+			can_max.push_back(can_max.back());
+		if(pos < can_min.back())
+			can_min.push_back(pos);
+		else 
+			can_min.push_back(can_min.back());
+		poses.push_back(pos);
+		// cout << "i: " << i << endl;
+		// cout << " can_max back : " << can_max.back() << endl;
+		// cout << " can_min back : " << can_min.back() << endl;
+	}
+	pos = 0;
+	for(int i = str.length()-1; i >= 0; i--){
+		if(str[i] == '-'){
+			pos++;
+		} else pos--;
+		if(pos > inv_max.back())
+			inv_max.push_back(pos);
+		else 
+			inv_max.push_back(inv_max.back());
+		if(pos < inv_min.back())
+			inv_min.push_back(pos);
+		else 
+			inv_min.push_back(inv_min.back());
+	}
+}
+
+int Solution::getDistinct_improve2(int l, int r){
+	int max_l = can_max[l-1];
+	int min_l = can_min[l-1];
+	int diff = poses[r] - poses[l-1];
+	int max_r = inv_max[mM-r] + poses[mM] - diff;
+	int min_r = inv_min[mM-r] + poses[mM] - diff;
+	int max = max_l > max_r ? max_l : max_r;
+	int min = min_l < min_r ? min_l : min_r;
+	// cout << "max_r: " << max_r << endl;
+	// cout << "min_r: " << min_r << endl;
+	// cout << "max_l: " << max_l << endl;
+	// cout << "min_l: " << min_l<< endl;
+	// cout << "diff: " << diff << endl;
+	// cout << "poses[mM-1]: " << poses[mM] << endl;
+	return max - min + 1;
 }
 
 int Solution::getDistinct(string &str, int l, int r){
