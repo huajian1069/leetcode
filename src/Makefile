@@ -44,6 +44,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0035-search-insert-position/search-insert-position.o \
 		./codeforces05-no-more-inversions/no-more-inversions.o \
 		./codeforces06-program/program.o \
+		./0038-count-and-say/count-and-say.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -83,7 +84,8 @@ TESTS = HelloWorld \
 		search-insert-position_test \
 		no-more-inversions_test \
 		program_test \
-
+		count-and-say_test \
+		
 all: gtest $(OBJECTS) $(TESTS)
 
 gtest:
@@ -171,3 +173,7 @@ no-more-inversions_test: ./codeforces05-no-more-inversions/no-more-inversions.o 
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 program_test: ./codeforces06-program/program.o codeforces06-program/program_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+count-and-say_test: ./0038-count-and-say/count-and-say.o 0038-count-and-say/count-and-say_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+
+
