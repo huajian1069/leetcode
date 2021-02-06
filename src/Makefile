@@ -45,6 +45,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./codeforces05-no-more-inversions/no-more-inversions.o \
 		./codeforces06-program/program.o \
 		./0038-count-and-say/count-and-say.o \
+		./0025-reverse-nodes-in-k-group/reverse-nodes-in-k-group.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -85,7 +86,8 @@ TESTS = HelloWorld \
 		no-more-inversions_test \
 		program_test \
 		count-and-say_test \
-		
+		reverse-nodes-in-k-group_test \
+
 all: gtest $(OBJECTS) $(TESTS)
 
 gtest:
@@ -175,5 +177,5 @@ program_test: ./codeforces06-program/program.o codeforces06-program/program_test
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 count-and-say_test: ./0038-count-and-say/count-and-say.o 0038-count-and-say/count-and-say_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
-
-
+reverse-nodes-in-k-group_test: ./0025-reverse-nodes-in-k-group/reverse-nodes-in-k-group.o 0025-reverse-nodes-in-k-group/reverse-nodes-in-k-group_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
