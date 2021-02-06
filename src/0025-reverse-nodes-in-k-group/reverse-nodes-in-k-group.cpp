@@ -33,3 +33,33 @@ ListNode* Solution::reverseKGroup(ListNode* head, int k) {
         }
     }
 }
+
+ListNode* Solution::rev(ListNode* groupPrev, int k) {
+	ListNode *b = groupPrev->next;
+    for (int i = 0; i < k-1; ++i) {
+        ListNode* bn = b->next;
+        b->next = b->next->next;
+        bn->next = groupPrev->next;
+        groupPrev->next = bn;
+    }
+    return b;
+}
+    
+bool Solution::hasK(ListNode* a, int k) {
+    for (int i = 0; i < k; ++i) {
+        a = a->next;
+        if (a == nullptr) {
+            return false;
+        }
+    }
+    return true;
+}
+
+ListNode* Solution::reverseKGroup2(ListNode* head, int k) {
+    ListNode* dum = new ListNode(0, head);
+    ListNode* groupPrev = dum;
+    while (hasK(groupPrev, k)) {
+        groupPrev = rev(groupPrev, k);
+    }
+    return dum->next;
+}
