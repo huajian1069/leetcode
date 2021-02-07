@@ -46,6 +46,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./codeforces06-program/program.o \
 		./0038-count-and-say/count-and-say.o \
 		./0025-reverse-nodes-in-k-group/reverse-nodes-in-k-group.o \
+		./0029-divide-two-integers/divide-two-integers.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -87,7 +88,8 @@ TESTS = HelloWorld \
 		program_test \
 		count-and-say_test \
 		reverse-nodes-in-k-group_test \
-
+		divide-two-integers_test \
+		
 all: gtest $(OBJECTS) $(TESTS)
 
 gtest:
@@ -178,4 +180,6 @@ program_test: ./codeforces06-program/program.o codeforces06-program/program_test
 count-and-say_test: ./0038-count-and-say/count-and-say.o 0038-count-and-say/count-and-say_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 reverse-nodes-in-k-group_test: ./0025-reverse-nodes-in-k-group/reverse-nodes-in-k-group.o 0025-reverse-nodes-in-k-group/reverse-nodes-in-k-group_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+divide-two-integers_test: ./0029-divide-two-integers/divide-two-integers.o 0029-divide-two-integers/divide-two-integers_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
