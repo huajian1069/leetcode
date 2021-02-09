@@ -47,6 +47,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0038-count-and-say/count-and-say.o \
 		./0025-reverse-nodes-in-k-group/reverse-nodes-in-k-group.o \
 		./0029-divide-two-integers/divide-two-integers.o \
+		./0031-next-permutation/next-permutation.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -89,6 +90,7 @@ TESTS = HelloWorld \
 		count-and-say_test \
 		reverse-nodes-in-k-group_test \
 		divide-two-integers_test \
+		next-permutation_test \
 		
 all: gtest $(OBJECTS) $(TESTS)
 
@@ -182,4 +184,6 @@ count-and-say_test: ./0038-count-and-say/count-and-say.o 0038-count-and-say/coun
 reverse-nodes-in-k-group_test: ./0025-reverse-nodes-in-k-group/reverse-nodes-in-k-group.o 0025-reverse-nodes-in-k-group/reverse-nodes-in-k-group_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 divide-two-integers_test: ./0029-divide-two-integers/divide-two-integers.o 0029-divide-two-integers/divide-two-integers_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+next-permutation_test: ./0031-next-permutation/next-permutation.o 0031-next-permutation/next-permutation_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
