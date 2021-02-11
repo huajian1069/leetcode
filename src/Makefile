@@ -49,6 +49,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0029-divide-two-integers/divide-two-integers.o \
 		./0031-next-permutation/next-permutation.o \
 		./0033-search-in-rotated-sorted-array/search-in-rotated-sorted-array.o \
+		./0050-pow/pow.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -93,7 +94,8 @@ TESTS = HelloWorld \
 		divide-two-integers_test \
 		next-permutation_test \
 		search-in-rotated-sorted-array_test \
-
+		pow_test \
+		
 all: gtest $(OBJECTS) $(TESTS)
 
 gtest:
@@ -190,4 +192,6 @@ divide-two-integers_test: ./0029-divide-two-integers/divide-two-integers.o 0029-
 next-permutation_test: ./0031-next-permutation/next-permutation.o 0031-next-permutation/next-permutation_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 search-in-rotated-sorted-array_test: ./0033-search-in-rotated-sorted-array/search-in-rotated-sorted-array.o 0033-search-in-rotated-sorted-array/search-in-rotated-sorted-array_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+pow_test: ./0050-pow/pow.o 0050-pow/pow_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
