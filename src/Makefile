@@ -48,6 +48,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0025-reverse-nodes-in-k-group/reverse-nodes-in-k-group.o \
 		./0029-divide-two-integers/divide-two-integers.o \
 		./0031-next-permutation/next-permutation.o \
+		./0033-search-in-rotated-sorted-array/search-in-rotated-sorted-array.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -91,7 +92,8 @@ TESTS = HelloWorld \
 		reverse-nodes-in-k-group_test \
 		divide-two-integers_test \
 		next-permutation_test \
-		
+		search-in-rotated-sorted-array_test \
+
 all: gtest $(OBJECTS) $(TESTS)
 
 gtest:
@@ -186,4 +188,6 @@ reverse-nodes-in-k-group_test: ./0025-reverse-nodes-in-k-group/reverse-nodes-in-
 divide-two-integers_test: ./0029-divide-two-integers/divide-two-integers.o 0029-divide-two-integers/divide-two-integers_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 next-permutation_test: ./0031-next-permutation/next-permutation.o 0031-next-permutation/next-permutation_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+search-in-rotated-sorted-array_test: ./0033-search-in-rotated-sorted-array/search-in-rotated-sorted-array.o 0033-search-in-rotated-sorted-array/search-in-rotated-sorted-array_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
