@@ -50,6 +50,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0031-next-permutation/next-permutation.o \
 		./0033-search-in-rotated-sorted-array/search-in-rotated-sorted-array.o \
 		./0050-pow/pow.o \
+		./0036-valid-sudoku/valid-sudoku.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -95,6 +96,7 @@ TESTS = HelloWorld \
 		next-permutation_test \
 		search-in-rotated-sorted-array_test \
 		pow_test \
+		valid-sudoku_test \
 		
 all: gtest $(OBJECTS) $(TESTS)
 
@@ -194,4 +196,6 @@ next-permutation_test: ./0031-next-permutation/next-permutation.o 0031-next-perm
 search-in-rotated-sorted-array_test: ./0033-search-in-rotated-sorted-array/search-in-rotated-sorted-array.o 0033-search-in-rotated-sorted-array/search-in-rotated-sorted-array_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 pow_test: ./0050-pow/pow.o 0050-pow/pow_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+valid-sudoku_test: ./0036-valid-sudoku/valid-sudoku.o 0036-valid-sudoku/valid-sudoku_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
