@@ -51,6 +51,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0033-search-in-rotated-sorted-array/search-in-rotated-sorted-array.o \
 		./0050-pow/pow.o \
 		./0036-valid-sudoku/valid-sudoku.o \
+		./0034-find-first-and-last-position/find-first-and-last-position.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -97,7 +98,8 @@ TESTS = HelloWorld \
 		search-in-rotated-sorted-array_test \
 		pow_test \
 		valid-sudoku_test \
-		
+		find-first-and-last-position_test \
+
 all: gtest $(OBJECTS) $(TESTS)
 
 gtest:
@@ -198,4 +200,6 @@ search-in-rotated-sorted-array_test: ./0033-search-in-rotated-sorted-array/searc
 pow_test: ./0050-pow/pow.o 0050-pow/pow_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 valid-sudoku_test: ./0036-valid-sudoku/valid-sudoku.o 0036-valid-sudoku/valid-sudoku_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+find-first-and-last-position_test: ./0034-find-first-and-last-position/find-first-and-last-position.o 0034-find-first-and-last-position/find-first-and-last-position_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
