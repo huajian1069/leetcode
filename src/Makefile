@@ -52,6 +52,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0050-pow/pow.o \
 		./0036-valid-sudoku/valid-sudoku.o \
 		./0034-find-first-and-last-position/find-first-and-last-position.o \
+		./0039-combination-sum/combination-sum.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -99,6 +100,7 @@ TESTS = HelloWorld \
 		pow_test \
 		valid-sudoku_test \
 		find-first-and-last-position_test \
+		combination-sum_test \
 
 all: gtest $(OBJECTS) $(TESTS)
 
@@ -202,4 +204,6 @@ pow_test: ./0050-pow/pow.o 0050-pow/pow_test.cpp
 valid-sudoku_test: ./0036-valid-sudoku/valid-sudoku.o 0036-valid-sudoku/valid-sudoku_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 find-first-and-last-position_test: ./0034-find-first-and-last-position/find-first-and-last-position.o 0034-find-first-and-last-position/find-first-and-last-position_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+combination-sum_test: ./0039-combination-sum/combination-sum.o 0039-combination-sum/combination-sum_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
