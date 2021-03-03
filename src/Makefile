@@ -53,6 +53,8 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0036-valid-sudoku/valid-sudoku.o \
 		./0034-find-first-and-last-position/find-first-and-last-position.o \
 		./0039-combination-sum/combination-sum.o \
+		./0040-combination-sum2/combination-sum2.o \
+		./0053-maximum-subarray/maximum-subarray.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -101,7 +103,9 @@ TESTS = HelloWorld \
 		valid-sudoku_test \
 		find-first-and-last-position_test \
 		combination-sum_test \
-
+		combination-sum2_test \
+		maximum-subarray_test \
+		
 all: gtest $(OBJECTS) $(TESTS)
 
 gtest:
@@ -206,4 +210,8 @@ valid-sudoku_test: ./0036-valid-sudoku/valid-sudoku.o 0036-valid-sudoku/valid-su
 find-first-and-last-position_test: ./0034-find-first-and-last-position/find-first-and-last-position.o 0034-find-first-and-last-position/find-first-and-last-position_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 combination-sum_test: ./0039-combination-sum/combination-sum.o 0039-combination-sum/combination-sum_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+combination-sum2_test: ./0040-combination-sum2/combination-sum2.o 0040-combination-sum2/combination-sum2_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+maximum-subarray_test: ./0053-maximum-subarray/maximum-subarray.o 0053-maximum-subarray/maximum-subarray_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
