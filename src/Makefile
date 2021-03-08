@@ -56,6 +56,7 @@ OBJECTS = ./basics/HelloWorld.o \
 		./0040-combination-sum2/combination-sum2.o \
 		./0053-maximum-subarray/maximum-subarray.o \
 		./0058-length-of-last-word/length-of-last-word.o \
+		./0048-rotate-image/rotate-image.o \
 
 TESTS = HelloWorld \
 		two-sum_test \
@@ -107,7 +108,8 @@ TESTS = HelloWorld \
 		combination-sum2_test \
 		maximum-subarray_test \
 		length-of-last-word_test \
-
+		rotate-image_test \
+		
 all: gtest $(OBJECTS) $(TESTS)
 
 gtest:
@@ -218,4 +220,6 @@ combination-sum2_test: ./0040-combination-sum2/combination-sum2.o 0040-combinati
 maximum-subarray_test: ./0053-maximum-subarray/maximum-subarray.o 0053-maximum-subarray/maximum-subarray_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
 length-of-last-word_test: ./0058-length-of-last-word/length-of-last-word.o 0058-length-of-last-word/length-of-last-word_test.cpp
+	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
+rotate-image_test: ./0048-rotate-image/rotate-image.o 0048-rotate-image/rotate-image_test.cpp
 	$(CC) $(CFLAGS) $(GTEST) $^ -o $@
